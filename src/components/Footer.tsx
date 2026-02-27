@@ -148,7 +148,7 @@ export default function Footer() {
         </div>
 
         {/* Newsletter */}
-        <div style={{
+        <div className="newsletter-row" style={{
           background: 'var(--bg-elevated)',
           border: '1px solid var(--border)',
           borderRadius: 'var(--radius-lg)',
@@ -173,7 +173,7 @@ export default function Footer() {
               ✓ You're subscribed!
             </div>
           ) : (
-            <form onSubmit={handleSubscribe} style={{ display: 'flex', gap: 8 }}>
+            <form onSubmit={handleSubscribe} className="newsletter-form" style={{ display: 'flex', gap: 8 }}>
               <input
                 type="email"
                 value={email}
@@ -198,7 +198,7 @@ export default function Footer() {
         </div>
 
         {/* Bottom bar */}
-        <div style={{
+        <div className="footer-bottom-bar" style={{
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'space-between',
@@ -210,7 +210,7 @@ export default function Footer() {
           <p style={{ color: 'var(--text-muted)', fontSize: '0.8rem' }}>
             © 2026 VOLT Technologies. All rights reserved.
           </p>
-          <div style={{ display: 'flex', gap: 24 }}>
+          <div className="footer-legal" style={{ display: 'flex', gap: 24 }}>
             {['Privacy Policy', 'Terms of Service', 'Cookie Policy'].map((item) => (
               <a
                 key={item}
@@ -232,6 +232,15 @@ export default function Footer() {
         }
         @media (max-width: 560px) {
           .footer-grid { grid-template-columns: 1fr !important; }
+        }
+        @media (max-width: 640px) {
+          .newsletter-row { padding: 24px 20px !important; }
+          .footer-bottom-bar { flex-direction: column !important; gap: 12px !important; }
+          .footer-legal { flex-wrap: wrap !important; gap: 12px !important; }
+        }
+        footer { padding-top: 48px !important; }
+        @media (max-width: 768px) {
+          footer { padding-top: 48px !important; }
         }
       `}</style>
     </footer>

@@ -234,6 +234,7 @@ export default function Products() {
             display: 'none',
             marginBottom: 24,
             padding: '10px 20px',
+            minHeight: 44,
             background: 'var(--bg-card)',
             border: '1px solid var(--border)',
             borderRadius: 8,

@@ -293,7 +293,7 @@ export default function Checkout() {
                       <span style={{ width: 24, height: 24, borderRadius: '50%', background: 'var(--accent)', color: 'var(--bg-primary)', display: 'inline-flex', alignItems: 'center', justifyContent: 'center', fontSize: '0.75rem', fontWeight: 800 }}>1</span>
                       Contact Information
                     </h2>
-                    <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16 }}>
+                    <div className="form-grid-2" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16 }}>
                       <Field label="First Name" name="firstName" form={form} errors={errors} onChange={handleChange} placeholder="John" />
                       <Field label="Last Name" name="lastName" form={form} errors={errors} onChange={handleChange} placeholder="Doe" />
                     </div>
@@ -310,7 +310,7 @@ export default function Checkout() {
                     </h2>
                     <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
                       <Field label="Street Address" name="address" form={form} errors={errors} onChange={handleChange} placeholder="123 VOLT Street" />
-                      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16 }}>
+                      <div className="form-grid-2" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16 }}>
                         <Field label="City" name="city" form={form} errors={errors} onChange={handleChange} placeholder="San Francisco" />
                         <Field label="ZIP / Postal Code" name="zip" form={form} errors={errors} onChange={handleChange} placeholder="94102" />
                       </div>
@@ -337,7 +337,7 @@ export default function Checkout() {
                         placeholder="1234 5678 9012 3456"
                         format={formatCard}
                       />
-                      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16 }}>
+                      <div className="form-grid-2" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16 }}>
                         <Field
                           label="Expiry Date"
                           name="expiry"
@@ -362,7 +362,7 @@ export default function Checkout() {
                 </div>
 
                 {/* Right: order summary */}
-                <div style={{
+                <div className="checkout-summary" style={{
                   background: 'var(--bg-card)',
                   border: '1px solid var(--border)',
                   borderRadius: 'var(--radius-lg)',
@@ -458,7 +458,10 @@ export default function Checkout() {
         )}
       </AnimatePresence>
 
-      <style>{`@media(max-width:900px){.checkout-layout{grid-template-columns:1fr !important;}}`}</style>
+      <style>{`
+        @media(max-width:900px){.checkout-layout{grid-template-columns:1fr !important;}}
+        @media(max-width:900px){.checkout-summary{position:static !important;}}
+      `}</style>
     </div>
   )
 }

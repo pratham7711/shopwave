@@ -180,7 +180,7 @@ export default function Home() {
             }}>
               Premium tech engineered for the relentless. From studio headphones to flagship phones — everything you need to stay ahead.
             </p>
-            <div ref={heroBtnsRef} style={{ display: 'flex', gap: 16, flexWrap: 'wrap' }}>
+            <div ref={heroBtnsRef} style={{ display: 'flex', gap: 16, flexWrap: 'wrap' }} className="hero-cta-row">
               <Link to="/products" className="btn-primary" style={{ fontSize: '0.875rem' }}>
                 Shop Now →
               </Link>
@@ -190,7 +190,7 @@ export default function Home() {
             </div>
 
             {/* Stats */}
-            <div style={{
+            <div className="hero-stats" style={{
               display: 'flex',
               gap: 40,
               marginTop: 48,
@@ -495,7 +495,7 @@ export default function Home() {
           }}
         >
           {bestsellerProducts.map((product) => (
-            <div key={product.id} style={{ minWidth: 280, maxWidth: 280 }}>
+            <div key={product.id} className="bestseller-card" style={{ minWidth: 280, maxWidth: 280 }}>
               <ProductCard product={product} compact />
             </div>
           ))}

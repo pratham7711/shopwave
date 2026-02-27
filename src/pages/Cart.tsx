@@ -117,6 +117,7 @@ export default function Cart() {
                   animate={{ opacity: 1, x: 0 }}
                   exit={{ opacity: 0, x: 20, height: 0, marginBottom: 0 }}
                   transition={{ duration: 0.3 }}
+                  className="cart-item-row"
                   style={{
                     display: 'flex',
                     gap: 20,
@@ -127,7 +128,7 @@ export default function Cart() {
                 >
                   {/* Product image */}
                   <Link to={`/products/${item.id}`}>
-                    <div style={{
+                    <div className="cart-item-image" style={{
                       width: 100,
                       height: 100,
                       borderRadius: 12,
@@ -202,7 +203,7 @@ export default function Cart() {
                   </div>
 
                   {/* Price */}
-                  <div style={{ textAlign: 'right' }}>
+                  <div className="cart-item-price" style={{ textAlign: 'right' }}>
                     <div style={{ fontFamily: 'Syne, sans-serif', fontSize: '1.2rem', fontWeight: 800, color: 'var(--accent)' }}>
                       ${(item.price * item.quantity).toLocaleString()}
                     </div>
@@ -218,7 +219,7 @@ export default function Cart() {
           </div>
 
           {/* Order summary */}
-          <div style={{
+          <div className="cart-summary" style={{
             background: 'var(--bg-card)',
             border: '1px solid var(--border)',
             borderRadius: 'var(--radius-lg)',
@@ -301,7 +302,10 @@ export default function Cart() {
         </div>
       </div>
 
-      <style>{`@media(max-width:900px){.cart-layout{grid-template-columns:1fr !important;}}`}</style>
+      <style>{`
+        @media(max-width:900px){.cart-layout{grid-template-columns:1fr !important;}}
+        @media(max-width:900px){.cart-summary{position:static !important;}}
+      `}</style>
     </div>
   )
 }

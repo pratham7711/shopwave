@@ -96,6 +96,7 @@ export default function ProductDetail() {
                   animate={{ opacity: 1, scale: 1 }}
                   exit={{ opacity: 0, scale: 0.97 }}
                   transition={{ duration: 0.35 }}
+                  className="product-main-image"
                   style={{
                     height: 480,
                     borderRadius: 'var(--radius-lg)',
@@ -229,7 +230,7 @@ export default function ProductDetail() {
             </div>
 
             {/* Quantity + Add to Cart */}
-            <div style={{ display: 'flex', gap: 16, marginBottom: 16, alignItems: 'center' }}>
+            <div className="detail-action-row" style={{ display: 'flex', gap: 16, marginBottom: 16, alignItems: 'center' }}>
               <div className="qty-control">
                 <button className="qty-btn" onClick={() => setQty(Math.max(1, qty - 1))}>−</button>
                 <input className="qty-value" type="number" value={qty} readOnly />
