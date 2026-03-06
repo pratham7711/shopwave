@@ -1,73 +1,111 @@
-# React + TypeScript + Vite
+# 🛍️ ShopWave
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+> **A full-featured e-commerce storefront — browse, cart, checkout, and pay, all in one slick React app.**
 
-Currently, two official plugins are available:
+[![Live Demo](https://img.shields.io/badge/Live%20Demo-Visit%20App-6366f1?style=for-the-badge&logo=vercel)](https://shopwave-green.vercel.app)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## React Compiler
+## ✨ Features
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- 🛒 **Full shopping cart** — add, remove, and update quantities with persistent state via Zustand
+- 💳 **Stripe checkout** — secure payment flow powered by `@stripe/stripe-js`
+- 🔍 **Product browsing** — filterable product grid with category navigation and search
+- 🔔 **Toast notifications** — instant feedback on cart actions via `react-hot-toast`
+- 🧭 **Client-side routing** — smooth SPA navigation with React Router v7
+- 🎬 **Animated UI** — page transitions and micro-interactions with Framer Motion and GSAP
+- 📱 **Fully responsive** — mobile-optimized layout from product grid to checkout
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## 🖼️ Screenshot
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+> _Add a screenshot here — e.g. `public/screenshot.png`_
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+![ShopWave Screenshot](public/screenshot.png)
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+---
+
+## 🛠️ Tech Stack
+
+![React](https://img.shields.io/badge/React%2019-61DAFB?style=flat-square&logo=react&logoColor=000)
+![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=flat-square&logo=typescript&logoColor=fff)
+![Zustand](https://img.shields.io/badge/Zustand-FF6B35?style=flat-square)
+![Stripe](https://img.shields.io/badge/Stripe-635BFF?style=flat-square&logo=stripe&logoColor=fff)
+![React Router](https://img.shields.io/badge/React%20Router%20v7-CA4245?style=flat-square&logo=react-router&logoColor=fff)
+![Framer Motion](https://img.shields.io/badge/Framer%20Motion-0055FF?style=flat-square&logo=framer&logoColor=fff)
+![GSAP](https://img.shields.io/badge/GSAP-88CE02?style=flat-square)
+![Vite](https://img.shields.io/badge/Vite%207-646CFF?style=flat-square&logo=vite&logoColor=fff)
+
+---
+
+## 🚀 Local Setup
+
+### Prerequisites
+
+- Node.js 18+
+- A [Stripe](https://stripe.com) account (for test API keys)
+
+### 1. Clone the repo
+
+```bash
+git clone https://github.com/pratham7711/shopwave.git
+cd shopwave
+npm install
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### 2. Configure environment variables
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+cp .env.example .env
 ```
+
+```env
+VITE_STRIPE_PUBLISHABLE_KEY=pk_test_...
+VITE_API_URL=http://localhost:4000    # optional backend URL
+```
+
+> **Note:** In demo mode (no backend), checkout simulates a payment without hitting Stripe.
+
+### 3. Run the dev server
+
+```bash
+npm run dev
+```
+
+Open [http://localhost:5173](http://localhost:5173)
+
+---
+
+## 🏗️ Build for Production
+
+```bash
+npm run build     # TypeScript compile + Vite bundle → dist/
+npm run preview   # Preview the production build locally
+```
+
+Deploy the `dist/` folder to Vercel, Netlify, or any static host.
+
+---
+
+## 📁 Project Structure
+
+```
+src/
+├── components/       # Reusable UI components (Navbar, ProductCard, Cart)
+├── pages/            # Route-level pages (Home, Products, Product, Checkout)
+├── store/            # Zustand cart and auth stores
+├── hooks/            # Custom React hooks
+├── utils/            # Stripe helpers, formatters
+└── types/            # TypeScript interfaces
+```
+
+---
+
+## 📄 License
+
+MIT — free to use, modify, and distribute.
+
+---
+
+<p align="center">Built by <a href="https://github.com/pratham7711">Pratham</a> · Powered by React + Zustand + Stripe</p>
